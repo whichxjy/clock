@@ -1,3 +1,10 @@
+const begin_datetime = new Date(2020, 1, 1);
+const end_datetime = new Date(9999, 1, 1);
+
+function days_diff(date2, date1) {
+    return Math.ceil((date2 - date1) / (1000 * 60 * 60 * 24));
+}
+
 function setup() {
     createCanvas(windowWidth, windowHeight);
 }
@@ -57,8 +64,8 @@ function draw() {
     // calculate blue [second]
     const blue = Math.floor((255 * now.getSeconds()) / 59);
 
-    // calculate alpha [year]
-    const alpha = Math.round(255 * (1 - min(1, (now.getFullYear() - 2020) / (10000 - 2020))));
+    // calculate alpha [days]
+    const alpha = Math.round(255 * (1 - min(1, days_diff(now, begin_datetime) / days_diff(end_datetime, begin_datetime))));
 
     for (let x = -width / 2; x < width / 2; x++) {
         for (let y = -height / 2; y < height / 2; y++) {
