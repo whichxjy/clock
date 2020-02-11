@@ -1,15 +1,15 @@
 const beginDatetime = new Date(2020, 1, 1)
 const endDatetime = new Date(9999, 1, 1)
 
-function daysDiff (date2, date1) {
+function daysDiff(date2, date1) {
   return Math.ceil((date2 - date1) / (1000 * 60 * 60 * 24))
 }
 
-function setup () {
+function setup() {
   createCanvas(windowWidth, windowHeight)
 }
 
-function calculateTheta (x, y) {
+function calculateTheta(x, y) {
   if (x === 0) {
     // y-axis
     if (y > 0) {
@@ -39,7 +39,7 @@ function calculateTheta (x, y) {
   }
 }
 
-function draw () {
+function draw() {
   const now = new Date()
 
   // prepare for red
@@ -86,6 +86,6 @@ function draw () {
   updatePixels()
 }
 
-function windowResized () {
+function windowResized() {
   resizeCanvas(windowWidth, windowHeight)
 }
